@@ -1,2 +1,1 @@
-# go-concurrency-parser
-Concurrent Go parser
+# go-video-parser
