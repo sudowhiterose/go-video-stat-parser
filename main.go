@@ -2,22 +2,34 @@ package main
 
 import (
 	"fmt"
+	"path/filepath"
 
 	mgo "github.com/mowshon/moviego/v2"
 )
 
 func main() {
-	info, err := mgo.Probe("video.mp4")
-	if err != nil {
-		panic(err)
-	}
+	//init video
+	files, _ := filepath.Glob("storage/*")
 
-	fmt.Printf("VIDEO STAT:\n")
-	fmt.Printf("Format: %s\n", info.Format)
-	fmt.Printf("Duration: %v\n", info.Duration) // Returns time.Duration, not float64!
-	fmt.Printf("File size: %d bytes\n", info.Size)
-	fmt.Printf("AUDIO STAT:\n")
-	fmt.Printf("Audio codec: %s\n", info.Audio.Codec)
-	fmt.Printf("Audio channels: %d\n", info.Audio.Channels)
-	fmt.Printf("Sample rate: %d Hz\n", info.Audio.SampleRate)
+	for _, file := range files {
+		info, err := mgo.Probe(file)
+		if err != nil {
+			continue
+		}
+
+		fmt.Printf("VIDEO STAT:\n")
+		fmt.Printf("Format: %s\n", info.Format)
+		fmt.Printf("Duration: %v\n", info.Duration)
+		fmt.Printf("File size: %d\n", info.Size)
+		fmt.Printf("Rate: %d\n", info.Rate)
+		fmt.Printf("Variable fps: %t\n", info.VariableFPS)
+		fmt.Printf("codec: %v\n", info.Codec)
+		//check alvailable of audio in video
+		if info.Audio != nil {
+			fmt.Printf("AUDIO STAT:\n")
+			fmt.Printf("Audio codec: %s\n", info.Audio.Codec)
+			fmt.Printf("Audio channels: %d\n", info.Audio.Channels)
+			fmt.Printf("Sample rate: %d Hz\n", info.Audio.SampleRate)
+		}
+	}
 }
