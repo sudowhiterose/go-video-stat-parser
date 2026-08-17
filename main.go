@@ -20,14 +20,14 @@ func main() {
 		return
 	}
 	//checking all video in folder
-	for _, file := range files {
+	for i, file := range files {
 		info, err := mgo.Probe(file)
 		if err != nil {
 			fmt.Printf("File parsing error %s: %v\n", file, err)
 			continue
 		}
 		//parsing result
-		fmt.Printf("VIDEO STAT:\n")
+		fmt.Printf("\n--- VIDEO #%d ---\n", i+1)
 		fmt.Printf("Format: %s\n", info.Format)
 		fmt.Printf("Duration: %v\n", info.Duration)
 		fmt.Printf("File size: %d\n", info.Size)
