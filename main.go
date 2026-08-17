@@ -9,8 +9,13 @@ import (
 
 func main() {
 	//init video
-	files, _ := filepath.Glob("storage/*")
-
+	fmt.Println("parsing in process")
+	files, err := filepath.Glob("storage/*")
+	//checking on error
+	if err != nil {
+		fmt.Println("Files not found. Please, create a 'storage' folder and upload videos there", err)
+	}
+	//checking all video in folder
 	for _, file := range files {
 		info, err := mgo.Probe(file)
 		if err != nil {
@@ -24,7 +29,7 @@ func main() {
 		fmt.Printf("Rate: %d\n", info.Rate)
 		fmt.Printf("Variable fps: %t\n", info.VariableFPS)
 		fmt.Printf("codec: %v\n", info.Codec)
-		//check alvailable of audio in video
+		//checking alvailable audio in video
 		if info.Audio != nil {
 			fmt.Printf("AUDIO STAT:\n")
 			fmt.Printf("Audio codec: %s\n", info.Audio.Codec)
