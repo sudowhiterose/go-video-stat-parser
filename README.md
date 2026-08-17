@@ -10,7 +10,7 @@ To get started, clone the repository:
 
 ```bash
 git clone https://github.com/sudowhiterose/go-video-stat-parser.git
-mkdir storage //pull your video in this folder
+mkdir storage #pull your video in this folder
 chmod +x go-video-stat-parser
 ```
 
@@ -18,8 +18,8 @@ chmod +x go-video-stat-parser
 
 To run the parser directly:
 
--move video in folder storage
--write command in bash terminal
+- Move video in folder storage 
+- Write command in bash terminal
 
 ```bash
 sudo ./go-video-stat-parser
