@@ -4,24 +4,13 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/sudowhiterose/go-video-stat-parser?display_name=tag)](https://github.com/sudowhiterose/go-video-stat-parser/releases)
 
-## 📦 Installation
-
-To get started, clone the repository:
-
-```bash
-git clone https://github.com/sudowhiterose/go-video-stat-parser.git
-mkdir storage #pull your videos in this folder
-chmod +x go-video-stat-parser
-```
-
 ## 🛠️ Usage
 
 To run the parser directly:
 
-- Move videos in folder storage 
-- Write command in bash terminal
-
 ```bash
+git clone https://github.com/sudowhiterose/go-video-stat-parser.git
+mkdir storage #pull your videos in this folder
 sudo ./go-video-stat-parser
 ```
 
