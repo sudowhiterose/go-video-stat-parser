@@ -9,19 +9,24 @@ import (
 
 func main() {
 	//init video
-	fmt.Println("parsing in process")
 	files, err := filepath.Glob("storage/*")
 	//checking on error
 	if err != nil {
-		fmt.Println("Files not found. Please, create a 'storage' folder and upload videos there", err)
+		fmt.Println("File search pattern error:", err)
+	}
+
+	if len(files) == 0 {
+		fmt.Println("Files not found. Please, create a 'storage' folder and upload videos there")
+		return
 	}
 	//checking all video in folder
 	for _, file := range files {
 		info, err := mgo.Probe(file)
 		if err != nil {
+			fmt.Printf("File parsing error %s: %v\n", file, err)
 			continue
 		}
-
+		//parsing result
 		fmt.Printf("VIDEO STAT:\n")
 		fmt.Printf("Format: %s\n", info.Format)
 		fmt.Printf("Duration: %v\n", info.Duration)
