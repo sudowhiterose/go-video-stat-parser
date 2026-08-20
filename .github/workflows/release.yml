@@ -3,10 +3,10 @@ name: Release
 on:
   push:
     tags:
-      - 'v*' # Запускает workflow при публикации тегов вроде v1.0.0, v0.1.2
+      - 'v*'
 
 permissions:
-  contents: write # Требуется для загрузки артефактов в релизы GitHub
+  contents: write
 
 jobs:
   goreleaser:
