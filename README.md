@@ -9,7 +9,7 @@
 To run the parser directly:
 
 ```bash
-git clone https://github.com/sudowhiterose/go-video-stat-parser.git
+download latest release 
 mkdir storage #pull your videos in this folder
 sudo ./go-video-stat-parser
 ```
