@@ -14,6 +14,5 @@ mkdir storage #pull your videos in this folder
 sudo ./go-video-stat-parser
 ```
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Used libs
+- moviego
